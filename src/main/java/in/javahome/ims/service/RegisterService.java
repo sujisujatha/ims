@@ -6,13 +6,16 @@ import in.javahome.ims.response.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RegisterService implements IRegisterService {
 	@Autowired
 	private IRegisterDAO registerDAO;
 
+	@Transactional
 	public Response register(RegisterModel registerModel) {
+		System.out.println("in register...");
 		Response response = new Response();
 		if (registerDAO.findRegisteredStudent(registerModel.getEmail()) != null) {
 			response.setMessage("Student already registered");
