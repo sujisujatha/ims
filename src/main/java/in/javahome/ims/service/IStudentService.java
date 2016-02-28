@@ -1,8 +1,8 @@
 package in.javahome.ims.service;
 
-import in.javahome.ims.pojo.StudentModel;
-import in.javahome.ims.response.Response;
+import in.javahome.ims.entities.Student;
 
 public interface IStudentService {
-	public Response register(StudentModel registerModel);
+
+	public void addStudentDetails(Student student);
 }

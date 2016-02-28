@@ -1,32 +1,35 @@
 package in.javahome.ims.controller;
 
-import in.javahome.ims.pojo.StudentModel;
-import in.javahome.ims.response.Response;
+import in.javahome.ims.entities.Student;
 import in.javahome.ims.service.IStudentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/services/register")
+@Controller
 public class StudentController {
-	@Value("${ims.name}")
-	private String name;
+
 	@Autowired
 	private IStudentService registerService;
-	@RequestMapping(method=RequestMethod.POST,consumes={MediaType.APPLICATION_JSON_VALUE})
-	public Response register(@RequestBody @Validated StudentModel register) {
-		return registerService.register(register);
+
+	@RequestMapping(value = "/student", method = RequestMethod.GET)
+	public String register(@ModelAttribute("student") Student student) {
+		return "addStudent";
 	}
-	
-	
-	@RequestMapping(method=RequestMethod.POST,value="/upload")
-	public Response upload(@RequestBody @Validated StudentModel register) {
-		return registerService.register(register);
+
+	@RequestMapping(value = "/student-registration", method = RequestMethod.POST)
+	public String upload(@Validated @ModelAttribute("student") Student student, BindingResult result) {
+		if (result.hasErrors()) {
+			return "addStudent";
+		} else {
+			registerService.addStudentDetails(student);
+			return "addStudent";
+		}
+
 	}
 }

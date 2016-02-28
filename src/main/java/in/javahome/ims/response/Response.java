@@ -1,9 +1,11 @@
 package in.javahome.ims.response;
 
+import org.springframework.http.HttpStatus;
+
 
 public class Response {
-	private int status;
-	private String message;
+	private int status = HttpStatus.OK.value();
+	private String message = "Success";
 	public int getStatus() {
 		return status;
 	}
