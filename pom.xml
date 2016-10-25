@@ -96,6 +96,34 @@
 		</dependency>
 
 	</dependencies>
+	<distributionManagement>
+		<!-- Publish the versioned releases here -->
+		<repository>
+			<id>javahome-nexus</id>
+			<name>javahome nexus</name>
+			<url>dav:http://192.168.33.10:8081/nexus/content/repositories/releases</url>
+		</repository>
+
+		<!-- Publish the versioned releases here -->
+		<snapshotRepository>
+			<id>javahome-nexus</id>
+			<name>javahome nexus</name>
+			<url>dav:http://192.168.33.10:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>javahome-nexus</id>
+			<name>javahome</name>
+			<url>http://192.168.33.10:8081/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 	<build>
 		<finalName>Realtime</finalName>
 	</build>
