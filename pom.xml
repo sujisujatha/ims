@@ -98,6 +98,6 @@
 	</dependencies>
 	
 	<build>
-		<finalName>Realtime</finalName>
+		<finalName>ims</finalName>
 	</build>
 </project>
