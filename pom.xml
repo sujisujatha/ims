@@ -7,7 +7,7 @@
 	<version>0.0.2-SNAPSHOT</version>
 	<name>ims Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-
+     <!-- Demo  -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.2.4.RELEASE</spring.version>
