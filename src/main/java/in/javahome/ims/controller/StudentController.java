@@ -19,6 +19,7 @@ public class StudentController {
 
 	@RequestMapping(value = "/student", method = RequestMethod.GET)
 	public String register(@ModelAttribute("student") Student student) {
+		System.out.println("Testing jenkins");
 		return "addStudent";
 	}
 
