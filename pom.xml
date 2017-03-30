@@ -7,6 +7,7 @@
 	<version>0.0.3-SNAPSHOT</version>
 	<name>ims Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<head> tag </head>
      <!-- Demo  -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
